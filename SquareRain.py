@@ -549,7 +549,7 @@ def gameloop():
             x = 19
         elif x < 0:
             x = 0
-        gamewindow.fill((0, 0, 0))
+        gamewindow.fill((0, 50, 0))
         for i in range(0, 20):
             for j in range(0, 20):
                 if j == x and i == 18 and notDead:
