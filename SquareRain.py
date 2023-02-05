@@ -48,7 +48,7 @@ def gameloop():
         pygame.draw.rect(gamewindow, (255, 255, 255), (x + 1, y + 1,
                          width - 2, width - 2))
 
-    pygame.display.set_caption('sirtet')
+    pygame.display.set_caption('SquareRain')
     black = (0, 0, 0)
     white = (255, 255, 255)
     enemyColor = (255, 255, 255)
@@ -500,7 +500,7 @@ def gameloop():
     for i in range(0, 20):
         for j in range(0, 20):
             Position[i][j] = (blockWidth * i, blockWidth * j)
-        print (Position[i])
+        # print (Position[i])
     x = 10
     running = True
     notDead = True
@@ -511,7 +511,7 @@ def gameloop():
 
     while running:
 
-        font = pygame.font.Font('freesansbold.ttf', 32)
+        font = pygame.font.Font('./freesansbold.ttf', 32)
 
         if timer < 250:
             if timer % 4 == 0:
@@ -536,7 +536,8 @@ def gameloop():
                 x = x + 1
             elif event.key == pygame.K_LEFT:
                 x = x - 1
-            elif event.key == pygame.K_SPACE:
+            elif event.key == pygame.K_RETURN:
+                print('restart')
                 if not notDead:
                     player = [Entity(x, 18)]
                     markers = []
@@ -587,7 +588,7 @@ def gameloop():
         else:
             text0 = font.render(str(timer), True, (255, 255, 255))
             text = font.render('GAME OVER', True, (255, 255, 255))
-            text2 = font.render('Press Space to Restart', True, (255,
+            text2 = font.render('Press Return/Enter to Restart', True, (255,
                                 255, 255))
 
         text0Rect = text0.get_rect()
@@ -610,10 +611,8 @@ def gameloop():
 
             pygame.time.delay(40)
         elif timer > 1500 and timer < 2000:
-
             pygame.time.delay(30)
         else:
-
             pygame.time.delay(25)
 
 
